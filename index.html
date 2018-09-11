@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neighborhood Map</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="appTitle">
+            <h1>Neighborhood Map</h1>
+        </div>
+        <div class="field">
+            <input class="searchBar" data-bind="value: searchedItem, text: searchedItem" />
+            <button class="searchButton" data-bind="click: listView">Search</button>
+        </div>
+        <table class="locationsGrid">
+            <tbody data-bind="foreach: locationList">
+                <tr data-bind="click: $root.goToMarker">
+                    <td class="address" data-bind="text: name,  attr: {id: name}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+
+    <div id='map'></div>
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/knockout-3.4.2.js"></script>
+    <script src="js/app.js"></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAt8diJ-yFgWfmyjckQqznmhgZEwmDsFo&callback=bind"
+        onerror="handleError()">
+        </script>
+
+
+
+</body>
+
+</html>
